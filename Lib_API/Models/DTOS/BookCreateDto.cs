@@ -9,6 +9,5 @@ public class BookCreateDto
     public string? Category { get; set; }
     public int? Quantity { get; set; }
     public int? AvailableQuantity { get; set; }
-    public int? AddedBy { get; set; }
     public string? SelfNumber { get; set; }
 }

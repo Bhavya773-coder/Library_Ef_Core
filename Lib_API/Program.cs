@@ -3,6 +3,7 @@ global using Lib_API.Models;
 global using Microsoft.EntityFrameworkCore;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,11 +19,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddControllers();
 builder.Services.AddFluentValidationAutoValidation();
-builder.Services.AddScoped<IValidator<Author>, AuthorValidator>();
-builder.Services.AddScoped<IValidator<Book>, BookValidator>();
-builder.Services.AddScoped<IValidator<BookIssue>, BookIssueValidator>();
-builder.Services.AddScoped<IValidator<StudentProfile>, StudentProfileValidator>();
-builder.Services.AddScoped<IValidator<User>, UserValidator>();
+builder.Services.AddScoped<IValidator<Author>, Author.AuthorValidator>();
+builder.Services.AddScoped<IValidator<Book>, Book.BookValidator>();
+builder.Services.AddScoped<IValidator<BookIssue>, BookIssue.BookIssueValidator>();
+builder.Services.AddScoped<IValidator<StudentProfile>, StudentProfile.StudentProfileValidator>();
+builder.Services.AddScoped<IValidator<User>, User.UserValidator>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
